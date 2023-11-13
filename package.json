@@ -28,7 +28,7 @@
     "@wildberries/preview-component": "0.0.6-beta.1",
     "@wildberries/service-logger": "1.1.3",
     "@wildberries/service-router": "1.0.12",
-    "@wildberries/ui-kit": "1.4.3",
+    "@wildberries/ui-kit": "^1.4.3",
     "@wildberries/wb-front-analytics-tracker": "1.1.7",
     "@wildberries/webpack-config-stream": "2.0.9",
     "babel-polyfill": "6.26.0",
