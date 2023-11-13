@@ -27,15 +27,15 @@ export const TodoCard = memo(
         <div className={cn(`${BLOCK_NAME}__body`)}>
           <div className={cn(`${BLOCK_NAME}__header`)}>
             <div className={cn(`${BLOCK_NAME}__info`)}>
-              <Text color="purple" text={`${title}`} />
-              <Text color="darkPurple" text={`${getFormattedDate(created)}`} />
+              <Text color="purple" text={title} />
+              <Text color="darkPurple" text={getFormattedDate(created)} />
             </div>
             <div className={cn(`${BLOCK_NAME}__remove-btn-wrapper`)}>
               <ButtonGhost leftIcon={RemoveIcon} size="s" />
             </div>
           </div>
           <div className={cn(`${BLOCK_NAME}__description`)}>
-            <Text text={`${description}`} />
+            <Text text={description} />
           </div>
           <ButtonPrimary size="s" text="Редактировать" />
         </div>

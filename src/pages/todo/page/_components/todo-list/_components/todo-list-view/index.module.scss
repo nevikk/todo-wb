@@ -1,10 +1,12 @@
+@import "@wildberries/ui-kit/lib/styles/constants.module.scss";
+
 .Todo-list-view {
   &__create-wrapper {
     margin-bottom: 16px;
   }
 
   &__list {
-    background: #fff;
+    background: $White;
     border-radius: 10px;
     padding: 16px;
   }

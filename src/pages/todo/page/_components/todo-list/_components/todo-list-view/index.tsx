@@ -16,19 +16,16 @@ type TProps = {
 };
 
 export const TodoListView = memo(({ isLoading, todoList }: TProps) => {
-  if (isLoading) {
-    return (
-      <div className={cn(`${BLOCK_NAME}`)}>
-        <Preloader size="medium" />
-      </div>
-    );
-  }
-
   return (
     <div className={cn(`${BLOCK_NAME}`)}>
       <div className={cn(`${BLOCK_NAME}__create-wrapper`)}>
         <TodoCreate />
       </div>
+      {isLoading && (
+        <div className={cn(`${BLOCK_NAME}`)}>
+          <Preloader size="medium" />
+        </div>
+      )}
       <div className={cn(`${BLOCK_NAME}__list`)}>
         {todoList.map((todo: TTodo) => (
           <TodoCard key={todo.id} todo={todo} />
