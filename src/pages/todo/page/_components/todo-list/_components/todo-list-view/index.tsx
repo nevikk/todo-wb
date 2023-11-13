@@ -17,12 +17,12 @@ type TProps = {
 
 export const TodoListView = memo(({ isLoading, todoList }: TProps) => {
   return (
-    <div className={cn(`${BLOCK_NAME}`)}>
+    <div className={cn(BLOCK_NAME)}>
       <div className={cn(`${BLOCK_NAME}__create-wrapper`)}>
         <TodoCreate />
       </div>
       {isLoading && (
-        <div className={cn(`${BLOCK_NAME}`)}>
+        <div className={cn(`${BLOCK_NAME}__loader`)}>
           <Preloader size="medium" />
         </div>
       )}

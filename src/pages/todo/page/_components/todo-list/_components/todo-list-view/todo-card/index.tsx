@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import {
   Text,
   BasicCircleXIcon,
@@ -22,13 +22,15 @@ export const TodoCard = memo(
   ({ todo: { created, description, title } }: TProps) => {
     const RemoveIcon = useCallback(() => <BasicCircleXIcon />, []);
 
+    const dateCreated = useMemo(() => getFormattedDate(created), [created]);
+
     return (
-      <div className={cn(`${BLOCK_NAME}`)}>
+      <div className={cn(BLOCK_NAME)}>
         <div className={cn(`${BLOCK_NAME}__body`)}>
           <div className={cn(`${BLOCK_NAME}__header`)}>
             <div className={cn(`${BLOCK_NAME}__info`)}>
               <Text color="purple" text={title} />
-              <Text color="darkPurple" text={getFormattedDate(created)} />
+              <Text color="darkPurple" text={dateCreated} />
             </div>
             <div className={cn(`${BLOCK_NAME}__remove-btn-wrapper`)}>
               <ButtonGhost leftIcon={RemoveIcon} size="s" />
