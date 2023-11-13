@@ -4,39 +4,13 @@ const { uniqueId } = require('lodash');
 const { todosModel } = require('../../models/todos');
 
 const todosGetController = async (req, res) => {
-  const todos = await todosModel.get();
+  const todos = await todosModel.value();
 
   res.status(200).json({
     jsonrpc: '2.0',
+    error: false,
     result: {
       todos,
-      //   todos: [
-      //     {
-      //       id: '1',
-      //       date: '01.10.2015',
-      //       title: 'Первая задача',
-      //       description: 'Lorem ipsum dolor sit amet.',
-      //     },
-      //     {
-      //       id: '2',
-      //       date: '01.10.2015',
-      //       title: 'Вторая задача',
-      //       description:
-      //         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam repellat ex perspiciatis accusantium non cumque quaerat, ullam enim laboriosam dicta suscipit, amet veniam rerum fugiat?',
-      //     },
-      //     {
-      //       id: '3',
-      //       date: '01.10.2015',
-      //       title: 'Третья задача',
-      //       description: 'Сделать описание Сделать описание Сделать описание',
-      //     },
-      //     {
-      //       id: '4',
-      //       date: '01.10.2015',
-      //       title: 'Ещё одна задача',
-      //       description: 'Сделать описание',
-      //     },
-      //   ],
     },
   });
 };
@@ -44,17 +18,32 @@ const todosGetController = async (req, res) => {
 const deleteTodoFromTodosController = async (req, res) => {
   const { id } = req.body;
 
+  const todoList = await todosModel.value();
+
+  const findTodo = todoList.find((todo) => todo.id === id);
+
+  if (!findTodo) {
+    res.status(200).json({
+      error: {
+        code: 404,
+        message: 'todo not found',
+      },
+      result: {},
+    });
+  }
+
   await todosModel.remove({ id }).write();
 
   res.status(200).json({
     jsonrpc: '2.0',
+    error: false,
     result: {},
     id,
   });
 };
 
 const addTodoToListController = async (req, res) => {
-  const { title, description } = req.body;
+  const { title = '', description = '' } = req.body;
 
   const newTodoId = uniqueId();
 
@@ -65,10 +54,11 @@ const addTodoToListController = async (req, res) => {
     description,
   };
 
-  await todosModel.get().push(formattedTodo).write();
+  await todosModel.push(formattedTodo).write();
 
   res.status(200).json({
     jsonrpc: '2.0',
+    error: false,
     result: {
       id: newTodoId,
     },

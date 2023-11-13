@@ -38,4 +38,4 @@ database
   })
   .write();
 
-module.exports.supplierModel = database.get('todos');
+module.exports.todosModel = database.get('todos');
