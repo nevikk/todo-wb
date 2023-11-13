@@ -7,7 +7,7 @@ import reducerUI, {
 } from '@/_redux/ui-module';
 import { Page } from './page';
 
-const pageNode = 'home';
+const pageNode = 'todo';
 
 const action = async ({ store }) => {
   injectAsyncReducer({
@@ -17,7 +17,7 @@ const action = async ({ store }) => {
   });
 
   return {
-    title: 'Home',
+    title: 'Todo',
     content: (
       <AppLayout>
         <RouteNode nodeName={pageNode}>
