@@ -1,6 +1,6 @@
 export default {
-  name: 'home',
-  path: '/home',
+  name: 'todo',
+  path: '/todo',
   loadAction: () => import('./index'),
   // uncomment if you need translations
   // i18n: {
