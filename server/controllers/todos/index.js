@@ -65,8 +65,37 @@ const addTodoToListController = async (req, res) => {
   });
 };
 
+const updateTodoController = async (req, res) => {
+  const { title, description, id } = req.body;
+
+  const todos = await todosModel.value();
+
+  const findTodo = todos.find((todo) => todo.id === id);
+
+  if (!findTodo) {
+    res.status(200).json({
+      error: {
+        code: 404,
+        message: 'todo not found',
+      },
+      result: {},
+    });
+  }
+
+  await todosModel
+    .find({ id: findTodo.id })
+    .assign({ title, description })
+    .write();
+
+  res.status(200).json({
+    error: false,
+    data: {},
+  });
+};
+
 module.exports = {
   deleteTodoFromTodosController,
   todosGetController,
   addTodoToListController,
+  updateTodoController,
 };
