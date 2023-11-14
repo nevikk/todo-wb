@@ -7,7 +7,7 @@ import {
   ButtonGhost,
 } from '@wildberries/ui-kit';
 import { getFormattedDate } from '@/_utils/date';
-import { TTodo } from '@/pages/todo/page/_types';
+import { TTodo } from '@/_redux/todo-module';
 import styles from './index.module.scss';
 
 const cn = classNames.bind(styles);

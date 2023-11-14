@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { memo } from 'react';
-import { Preloader } from '@wildberries/ui-kit';
-import { TTodo } from '@/pages/todo/page/_types';
+import { Preloader, Text } from '@wildberries/ui-kit';
+import { TTodo } from '@/_redux/todo-module';
 import { TodoCard } from './todo-card';
 import { TodoCreate } from './todo-create';
 import styles from './index.module.scss';
@@ -27,9 +27,11 @@ export const TodoListView = memo(({ isLoading, todoList }: TProps) => {
         </div>
       )}
       <div className={cn(`${BLOCK_NAME}__list`)}>
-        {todoList.map((todo: TTodo) => (
-          <TodoCard key={todo.id} todo={todo} />
-        ))}
+        {todoList.length > 0 ? (
+          todoList.map((todo: TTodo) => <TodoCard key={todo.id} todo={todo} />)
+        ) : (
+          <Text text="Задач не создано" />
+        )}
       </div>
     </div>
   );
