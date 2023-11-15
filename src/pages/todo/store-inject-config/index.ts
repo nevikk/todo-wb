@@ -1,6 +1,7 @@
 import { StoreInjectConfig } from '@mihanizm56/redux-core-modules';
 import uiReducer, { MODULE_REDUCER_NAME } from '@/_redux/ui-module';
 import todoReducer, { TODO_REDUCER_NAME } from '@/_redux/todo-module';
+import { fetchTodosConfig } from '../_utils/get-fetch-todos-config';
 
 export const storeInjectConfig: StoreInjectConfig = {
   reducersToInject: [
@@ -13,4 +14,7 @@ export const storeInjectConfig: StoreInjectConfig = {
       reducer: todoReducer,
     },
   ],
+  initialLoadManagerConfig: {
+    requestConfigList: [fetchTodosConfig],
+  },
 };

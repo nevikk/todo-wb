@@ -4,7 +4,7 @@ export type TTodo = {
   id: number;
   title: string;
   description: string;
-  created: string;
+  date: string;
 };
 
 export type TTodoState = {

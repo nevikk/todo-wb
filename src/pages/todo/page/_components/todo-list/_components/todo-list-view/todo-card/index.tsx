@@ -19,10 +19,10 @@ type TProps = {
 };
 
 export const TodoCard = memo(
-  ({ todo: { created, description, title } }: TProps) => {
+  ({ todo: { date, description, title } }: TProps) => {
     const RemoveIcon = useCallback(() => <BasicCircleXIcon />, []);
 
-    const dateCreated = useMemo(() => getFormattedDate(created), [created]);
+    const dateCreated = useMemo(() => getFormattedDate(date), [date]);
 
     return (
       <div className={cn(BLOCK_NAME)}>

@@ -7,9 +7,10 @@ const todosGetController = async (req, res) => {
   const todos = await todosModel.value();
 
   res.status(200).json({
-    jsonrpc: '2.0',
     error: false,
-    result: {
+    errorText: '',
+    additionalErrors: null,
+    data: {
       todos,
     },
   });
