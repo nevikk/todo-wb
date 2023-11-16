@@ -1,5 +1,5 @@
 import { IReduxAction, IReduxBaseAction } from '@mihanizm56/redux-core-modules';
-import { TTodo } from './_types';
+import { TIdToDelete, TTodo, TUpdateTodo } from './_types';
 
 const SET_TODOS_IS_LOADING_START = 'SET_TODOS_IS_LOADING_START';
 export const setTodosIsLoadingStartAction: IReduxBaseAction<
@@ -17,12 +17,47 @@ export const setTodosIsLoadingStopAction: IReduxBaseAction<
 });
 setTodosIsLoadingStopAction.type = SET_TODOS_IS_LOADING_STOP;
 
-const GET_TODOS_SUCCESS = 'GET_TODOS_SUCCESS';
-export const getTodosSuccessAction: IReduxAction<
-  Array<TTodo>,
-  typeof GET_TODOS_SUCCESS
-> = (payload) => ({
-  type: GET_TODOS_SUCCESS,
+const SET_TODOS = 'SET_TODOS';
+export const setTodosAction: IReduxAction<Array<TTodo>, typeof SET_TODOS> = (
+  payload,
+) => ({
+  type: SET_TODOS,
   payload,
 });
-getTodosSuccessAction.type = GET_TODOS_SUCCESS;
+setTodosAction.type = SET_TODOS;
+
+const SET_TODOS_IS_LOADING_FORM_START = 'SET_TODOS_IS_LOADING_FORM_START';
+export const setTodosIsLoadingFormStartAction: IReduxBaseAction<
+  typeof SET_TODOS_IS_LOADING_FORM_START
+> = () => ({
+  type: SET_TODOS_IS_LOADING_FORM_START,
+});
+setTodosIsLoadingFormStartAction.type = SET_TODOS_IS_LOADING_FORM_START;
+
+const SET_TODOS_IS_LOADING_FORM_STOP = 'SET_TODOS_IS_LOADING_FORM_STOP';
+export const setTodosIsLoadingFormStopAction: IReduxBaseAction<
+  typeof SET_TODOS_IS_LOADING_FORM_STOP
+> = () => ({
+  type: SET_TODOS_IS_LOADING_FORM_STOP,
+});
+setTodosIsLoadingFormStopAction.type = SET_TODOS_IS_LOADING_FORM_STOP;
+
+const DELETE_TODO = 'DELETE_TODO';
+export const deleteTodoActionSaga: IReduxAction<
+  TIdToDelete,
+  typeof DELETE_TODO
+> = (payload) => ({
+  type: DELETE_TODO,
+  payload,
+});
+deleteTodoActionSaga.type = DELETE_TODO;
+
+const UPDATE_TODO = 'UPDATE_TODO';
+export const updateTodoActionSaga: IReduxAction<
+  TUpdateTodo,
+  typeof UPDATE_TODO
+> = (payload) => ({
+  type: UPDATE_TODO,
+  payload,
+});
+updateTodoActionSaga.type = UPDATE_TODO;

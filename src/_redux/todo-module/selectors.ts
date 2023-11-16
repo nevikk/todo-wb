@@ -11,6 +11,11 @@ export const todoIsLoadingSelector = createSelector(
   ({ isLoading }: TTodoState) => isLoading,
 );
 
+export const todoIsLoadingFormSelector = createSelector(
+  [todoSelector],
+  ({ isLoadingForm }: TTodoState) => isLoadingForm,
+);
+
 export const todoTodosSelector = createSelector(
   [todoSelector],
   ({ todos }: TTodoState) => todos,
