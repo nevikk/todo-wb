@@ -7,4 +7,11 @@ export const makeRequestConfig = (): IRequestParams => ({
   endpoint: getTodosListEndpoint(),
   translateFunction: requestTranslateFunction,
   responseSchema,
+  browserCacheParams: {
+    strategy: 'NetworkFirst',
+    requestCacheKey: 'todos-fetch',
+    storageCacheName: 'todos-fetch-list',
+    expires: 1000 * 60,
+    debug: true,
+  },
 });
