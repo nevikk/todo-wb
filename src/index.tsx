@@ -70,6 +70,7 @@ const i18nextConfig = {
   actionToStartLoading: starti18nextLoadingAction,
   actionToStopLoading: stopi18nextLoadingAction,
   createEndpoint: getI18nextRequestEndpoint,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   formatterResponseData: (data: Record<string, any>) => data.translate,
 };
 

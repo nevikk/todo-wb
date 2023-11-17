@@ -7,9 +7,10 @@ const todosGetController = async (req, res) => {
   const todos = await todosModel.value();
 
   res.status(200).json({
-    jsonrpc: '2.0',
     error: false,
-    result: {
+    errorText: '',
+    additionalErrors: null,
+    data: {
       todos,
     },
   });
@@ -28,28 +29,32 @@ const deleteTodoFromTodosController = async (req, res) => {
         code: 404,
         message: 'todo not found',
       },
-      result: {},
+      errorText: '',
+      data: {},
+      additionalErrors: null,
     });
   }
 
   await todosModel.remove({ id }).write();
 
   res.status(200).json({
-    jsonrpc: '2.0',
     error: false,
-    result: {},
-    id,
+    errorText: '',
+    additionalErrors: null,
+    data: {
+      id,
+    },
   });
 };
 
 const addTodoToListController = async (req, res) => {
   const { title = '', description = '' } = req.body;
 
-  const newTodoId = uniqueId();
+  const newTodoId = Number(uniqueId());
 
   const formattedTodo = {
     id: newTodoId,
-    created: new Date().toISOString(),
+    date: new Date().toISOString(),
     title,
     description,
   };
@@ -57,9 +62,10 @@ const addTodoToListController = async (req, res) => {
   await todosModel.push(formattedTodo).write();
 
   res.status(200).json({
-    jsonrpc: '2.0',
     error: false,
-    result: {
+    errorText: '',
+    additionalErrors: null,
+    data: {
       id: newTodoId,
     },
   });
@@ -78,7 +84,7 @@ const updateTodoController = async (req, res) => {
         code: 404,
         message: 'todo not found',
       },
-      result: {},
+      data: {},
     });
   }
 
@@ -89,7 +95,13 @@ const updateTodoController = async (req, res) => {
 
   res.status(200).json({
     error: false,
-    data: {},
+    errorText: '',
+    additionalErrors: null,
+    data: {
+      id,
+      title,
+      description,
+    },
   });
 };
 

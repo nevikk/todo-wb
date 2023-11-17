@@ -1,0 +1,11 @@
+@import "@wildberries/ui-kit/lib/styles/constants.module.scss";
+
+.Todo-create-view {
+  background: $White;
+  border-radius: 10px;
+  padding: 16px;
+
+  &__submit-btn {
+    margin-top: 8px;
+  }
+}

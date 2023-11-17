@@ -1,6 +1,6 @@
 @import "@wildberries/ui-kit/lib/styles/constants.module.scss";
 
-.Todo-card {
+.Todo-card-view {
   &:not(:last-child) {
     margin-bottom: 8px;
   }
@@ -11,20 +11,18 @@
   }
 
   &__header {
-    column-gap: 8px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-  }
-
-  &__info {
     align-items: center;
     column-gap: 8px;
     display: flex;
+    justify-content: space-between;
   }
 
   &__remove-btn-wrapper {
     flex: 0 0 auto;
+  }
+
+  &__title {
+    margin-bottom: 8px;
   }
 
   &__description {
