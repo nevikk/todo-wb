@@ -39,6 +39,7 @@ import { i18nextRequest } from './api/requests/i18next';
 import 'normalize.css';
 import '@/styles/global.css';
 import '@/styles/variables.module.scss';
+import { I18N_DICTIONARY } from './_assets/i18next/dictionary';
 
 // const ROOT_ELEMENT = document.getElementById('root');
 
@@ -84,12 +85,26 @@ router.add(routes);
 
 const root = createRoot(document.getElementById('root'));
 
-geti18Next({ appNamespace: APP_NAMESPACE, locale: getLocale() }).then(() =>
+geti18Next({
+  appNamespace: APP_NAMESPACE,
+  locale: getLocale(),
+}).then(() => {
+  if (
+    process.env.NODE_ENV === 'development' &&
+    navigator.userAgent.includes('Windows')
+  ) {
+    i18next.addResourceBundle(
+      getLocale(),
+      APP_NAMESPACE,
+      I18N_DICTIONARY[getLocale()],
+    );
+  }
+
   router.start(() => {
     root.render(
       <Provider store={store}>
         <App router={router} />
       </Provider>,
     );
-  }),
-);
+  });
+});

@@ -6,6 +6,7 @@ import {
   ButtonPrimary,
   ButtonGhost,
 } from '@wildberries/ui-kit';
+import i18next from 'i18next';
 import { getFormattedDate } from '@/_utils/date';
 import {
   TTodo,
@@ -13,6 +14,7 @@ import {
   deleteTodoActionSaga,
   updateTodoActionSaga,
 } from '@/_redux/todo-module';
+import { TODO_PAGE_TRANSLATES } from '@/pages/todo/_constants/translation';
 import { TodoCardFormView } from './_components/todo-card-form-view';
 import styles from './index.module.scss';
 
@@ -78,7 +80,7 @@ export const TodoCardView = memo(
               <ButtonPrimary
                 onClick={toggleEditingHandler}
                 size="s"
-                text="Редактировать"
+                text={i18next.t(TODO_PAGE_TRANSLATES.editTodoBtnText)}
               />
             </>
           ) : (
