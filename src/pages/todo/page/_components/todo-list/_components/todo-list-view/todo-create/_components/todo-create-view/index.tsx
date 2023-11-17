@@ -19,7 +19,7 @@ const BLOCK_NAME = 'Todo-create-view';
 export const TodoCreateView = memo(
   ({ isLoadingForm, onCreateTodo }: TProps) => {
     return (
-      <div className={cn(BLOCK_NAME)}>
+      <>
         <Form
           onSubmit={onCreateTodo}
           render={({ handleSubmit, valid }) => {
@@ -55,7 +55,7 @@ export const TodoCreateView = memo(
             );
           }}
         />
-      </div>
+      </>
     );
   },
 );

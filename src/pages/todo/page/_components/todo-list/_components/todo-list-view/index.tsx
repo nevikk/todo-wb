@@ -28,7 +28,7 @@ export const TodoListView = memo(({ isLoading, todoList }: TProps) => {
       )}
       {!isLoading && (
         <div className={cn(`${BLOCK_NAME}__list`)}>
-          {todoList.length > 0 ? (
+          {Boolean(todoList.length) ? (
             todoList.map((todo: TTodo) => (
               <ConnectedTodoCard key={todo.id} todo={todo} />
             ))

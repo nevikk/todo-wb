@@ -20,7 +20,7 @@ export function* updateTodoWorkerSaga({ id, title, description }: TUpdateTodo) {
     const currentTodos: Array<TTodo> = yield select(todoTodosSelector);
 
     const newTodos = currentTodos.map((todo: TTodo) =>
-      todo.id === id ? { ...todo, id, title, description } : { ...todo },
+      todo.id === id ? { ...todo, title, description } : todo,
     );
 
     yield put(batchActions([setTodosAction(newTodos)]));

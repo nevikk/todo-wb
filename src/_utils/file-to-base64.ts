@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable import/no-unused-modules */
 export const toBase64 = (file: File): Promise<any> =>
   new Promise((resolve, reject) => {

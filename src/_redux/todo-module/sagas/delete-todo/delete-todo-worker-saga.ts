@@ -5,7 +5,7 @@ import { deleteTodoRequest } from '@/api/requests/todos/delete-todo';
 import { getFetchTodosRequestConfigList } from '@/pages/todo/_utils/store-inject-configs/get-fetch-todos-request-config-list';
 import { TIdToDelete } from '../../_types';
 
-export function* deleteTodoWorkekSaga(id: TIdToDelete) {
+export function* deleteTodoWorkerSaga(id: TIdToDelete) {
   try {
     const { error, errorText } = yield call(deleteTodoRequest, id);
 
