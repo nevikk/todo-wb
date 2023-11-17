@@ -13,12 +13,12 @@ import {
   deleteTodoActionSaga,
   updateTodoActionSaga,
 } from '@/_redux/todo-module';
-import { TodoCardForm } from './_components/todo-card-form';
+import { TodoCardFormView } from './_components/todo-card-form-view';
 import styles from './index.module.scss';
 
 const cn = classNames.bind(styles);
 
-const BLOCK_NAME = 'Todo-card';
+const BLOCK_NAME = 'Todo-card-view';
 
 type TProps = {
   todo: TTodo;
@@ -82,7 +82,7 @@ export const TodoCardView = memo(
               />
             </>
           ) : (
-            <TodoCardForm
+            <TodoCardFormView
               description={description}
               onCancel={cancelEditingHandler}
               onSubmit={submitEditingHandler}

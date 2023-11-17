@@ -8,17 +8,17 @@ import {
   setTodosIsLoadingFormStopAction,
 } from '@/_redux/todo-module';
 import { createTodoRequest } from '@/api/requests/todos/create-todo';
-import { getFetchTodosRequestConfigList } from '@/pages/todo/_utils/store-inject-configs/get-fetch-todos-request-config-list';
+import { getFetchTodosRequest } from '@/pages/todo/_utils/store-inject-configs/get-fetch-todos-request';
 
-type TProps = {
+type TParams = {
   data: TCreateTodoForm;
   successCallback: () => void;
 };
 
-export const getCreateTodoConfigList = ({
+export const getCreateTodoRequest = ({
   data,
   successCallback,
-}: TProps): FormManagerType => ({
+}: TParams): FormManagerType => ({
   formValues: data,
   loadingStartAction: setTodosIsLoadingFormStartAction,
   loadingStopAction: setTodosIsLoadingFormStopAction,
@@ -30,7 +30,7 @@ export const getCreateTodoConfigList = ({
     successCallback();
     dispatch(
       initLoadManagerActionSaga({
-        requestConfigList: [getFetchTodosRequestConfigList],
+        requestConfigList: [getFetchTodosRequest],
       }),
     );
   },

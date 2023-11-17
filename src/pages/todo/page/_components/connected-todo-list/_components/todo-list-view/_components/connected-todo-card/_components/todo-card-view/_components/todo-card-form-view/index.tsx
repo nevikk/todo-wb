@@ -19,12 +19,12 @@ type TProps = {
 
 const cn = classNames.bind(styles);
 
-const BLOCK_NAME = 'Todo-card-form';
+const BLOCK_NAME = 'Todo-card-form-view';
 
-export const TodoCardForm = memo(
+export const TodoCardFormView = memo(
   ({ onCancel, title, description, onSubmit }: TProps) => {
     return (
-      <div className={cn(BLOCK_NAME)}>
+      <>
         <Form
           onSubmit={onSubmit}
           render={({ handleSubmit, valid, pristine }) => {
@@ -66,7 +66,7 @@ export const TodoCardForm = memo(
             );
           }}
         />
-      </div>
+      </>
     );
   },
 );

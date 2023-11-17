@@ -20,7 +20,10 @@ export const initialState: TTodoState = {
   todos: [],
 };
 
-const reducer = (state: TTodoState = initialState, action: TAction) => {
+const reducer = (
+  state: TTodoState = initialState,
+  action: TAction,
+): TTodoState => {
   switch (action.type) {
     case setTodosIsLoadingStartAction.type:
       return { ...state, isLoading: true };

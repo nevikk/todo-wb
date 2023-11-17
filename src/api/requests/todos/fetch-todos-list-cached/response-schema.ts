@@ -6,7 +6,7 @@ export const responseSchema = Joi.object({
       Joi.object({
         id: Joi.number().required(),
         title: Joi.string().required(),
-        date: Joi.string().required(),
+        date: Joi.date().required(),
         description: Joi.string().required(),
       }),
     )

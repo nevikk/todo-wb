@@ -9,7 +9,7 @@ import {
   UPDATE_TODO_WATCHER_SAGA_NAME,
   updateTodoWatcherSaga,
 } from '@/_redux/todo-module/sagas/update-todo/update-todo-watcher-saga';
-import { getFetchTodosRequestConfigList } from '../_utils/store-inject-configs/get-fetch-todos-request-config-list';
+import { getFetchTodosRequest } from '../_utils/store-inject-configs/get-fetch-todos-request';
 
 export const storeInjectConfig: StoreInjectConfig = {
   reducersToInject: [
@@ -34,6 +34,6 @@ export const storeInjectConfig: StoreInjectConfig = {
   ],
 
   initialLoadManagerConfig: {
-    requestConfigList: [getFetchTodosRequestConfigList],
+    requestConfigList: [getFetchTodosRequest],
   },
 };

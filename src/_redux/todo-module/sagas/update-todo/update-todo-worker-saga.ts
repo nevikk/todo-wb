@@ -23,13 +23,14 @@ export function* updateTodoWorkerSaga({ id, title, description }: TUpdateTodo) {
       todo.id === id ? { ...todo, title, description } : todo,
     );
 
-    yield put(batchActions([setTodosAction(newTodos)]));
-
     yield put(
-      setModalAction({
-        status: 'success',
-        title: 'Задача изменена',
-      }),
+      batchActions([
+        setTodosAction(newTodos),
+        setModalAction({
+          status: 'success',
+          title: 'Задача изменена',
+        }),
+      ]),
     );
   } catch (error) {
     console.error('error in updateTodoRequest', error.message);

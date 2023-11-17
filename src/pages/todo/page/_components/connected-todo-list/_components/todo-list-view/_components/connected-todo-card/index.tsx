@@ -4,7 +4,7 @@ import {
   deleteTodoActionSaga,
   updateTodoActionSaga,
 } from '@/_redux/todo-module';
-import { TodoCardView } from './todo-card-view/index';
+import { TodoCardView } from './_components/todo-card-view/index';
 
 type TExternalProps = {
   todo: TTodo;

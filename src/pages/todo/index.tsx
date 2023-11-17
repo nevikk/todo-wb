@@ -25,15 +25,7 @@ const action = async ({ store }) => {
     content: (
       <AppLayout>
         <ReduxStoreLoader storeInjectConfig={storeInjectConfig}>
-          <RouteNode nodeName={pageNode}>
-            {({ route, content }) => {
-              if (route.name === pageNode) {
-                return <Page />;
-              }
-
-              return content;
-            }}
-          </RouteNode>
+          <RouteNode nodeName={pageNode}>{() => <Page />}</RouteNode>
         </ReduxStoreLoader>
       </AppLayout>
     ),
