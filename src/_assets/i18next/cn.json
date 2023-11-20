@@ -1,0 +1,19 @@
+{
+  "pageTitle": "任务列表",
+  "createTodoBtnText": "创建任务",
+  "deleteTodoSuccessMessage": "任务已删除",
+  "deleteTodoErrorMessage": "删除任务时出错",
+  "updateTodoSuccessMessage": "任务已更改",
+  "updateTodoErrorMessage": "更改任务时发生错误",
+  "emptyTodoList": "没有创建任务",
+  "todoTitleLabel": "任务名称",
+  "todoTitlePlaceholder": "输入任务名称",
+  "todoDescriptionLabel": "任务描述",
+  "todoDescriptionPlaceholder": "输入任务描述",
+  "editTodoBtnText": "编辑",
+  "submitEditTodoBtnText": "节省",
+  "cancelEditTodoBtnText": "取消",
+  "createTodoSuccessMessage": "任务已创建",
+  "createTodoErrorMessage": "创建任务时出错",
+  "fetchTodosErrorMessage": "接收任务时发生错误"
+}

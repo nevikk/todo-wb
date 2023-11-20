@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Task list",
+  "createTodoBtnText": "Create a task",
+  "deleteTodoSuccessMessage": "Task deleted",
+  "deleteTodoErrorMessage": "An error occurred while deleting a task",
+  "updateTodoSuccessMessage": "Task changed",
+  "updateTodoErrorMessage": "An error occurred while changing the task",
+  "emptyTodoList": "No tasks created",
+  "todoTitleLabel": "Task name",
+  "todoTitlePlaceholder": "Enter a task name",
+  "todoDescriptionLabel": "Description of the task",
+  "todoDescriptionPlaceholder": "Enter a task description",
+  "editTodoBtnText": "Edit",
+  "submitEditTodoBtnText": "Save",
+  "cancelEditTodoBtnText": "Cancel",
+  "createTodoSuccessMessage": "Task created",
+  "createTodoErrorMessage": "An error occurred while creating the task",
+  "fetchTodosErrorMessage": "An error occurred while receiving tasks"
+}

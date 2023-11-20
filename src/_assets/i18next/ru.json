@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Список задач",
+  "createTodoBtnText": "Создать задачу",
+  "deleteTodoSuccessMessage": "Задача удалена",
+  "deleteTodoErrorMessage": "Произошла ошибка при удалении задачи",
+  "updateTodoSuccessMessage": "Задача изменена",
+  "updateTodoErrorMessage": "Произошла ошибка при изменении задачи",
+  "emptyTodoList": "Задач не создано",
+  "todoTitleLabel": "Название задачи",
+  "todoTitlePlaceholder": "Введите название задачи",
+  "todoDescriptionLabel": "Описание задачи",
+  "todoDescriptionPlaceholder": "Введите описание задачи",
+  "editTodoBtnText": "Редактировать",
+  "submitEditTodoBtnText": "Сохранить",
+  "cancelEditTodoBtnText": "Отмена",
+  "createTodoSuccessMessage": "Задача создана",
+  "createTodoErrorMessage": "Произошла ошибка при создании задачи",
+  "fetchTodosErrorMessage": "Произошла ошибка при получении задач"
+}

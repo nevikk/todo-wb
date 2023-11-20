@@ -1,8 +1,10 @@
 import { call, put, select } from 'redux-saga/effects';
 import { setModalAction } from '@wildberries/notifications';
 import { batchActions } from 'redux-batched-actions';
+import i18next from 'i18next';
 import { TTodo, setTodosAction, TUpdateTodo } from '@/_redux/todo-module';
 import { updateTodoRequest } from '@/api/requests/todos/update-todo';
+import { TODO_PAGE_TRANSLATES } from '@/pages/todo/_constants/translation';
 import { todoTodosSelector } from '../../selectors';
 
 export function* updateTodoWorkerSaga({ id, title, description }: TUpdateTodo) {
@@ -28,7 +30,7 @@ export function* updateTodoWorkerSaga({ id, title, description }: TUpdateTodo) {
         setTodosAction(newTodos),
         setModalAction({
           status: 'success',
-          title: 'Задача изменена',
+          title: i18next.t(TODO_PAGE_TRANSLATES.updateTodoSuccessMessage),
         }),
       ]),
     );
@@ -38,7 +40,7 @@ export function* updateTodoWorkerSaga({ id, title, description }: TUpdateTodo) {
     yield put(
       setModalAction({
         status: 'error',
-        title: 'Произошла ошибка при редактировании',
+        title: i18next.t(TODO_PAGE_TRANSLATES.updateTodoErrorMessage),
       }),
     );
   }

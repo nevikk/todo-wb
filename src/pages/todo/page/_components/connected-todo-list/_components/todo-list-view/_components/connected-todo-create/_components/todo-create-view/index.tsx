@@ -3,8 +3,10 @@ import { memo } from 'react';
 import { Field, Form } from 'react-final-form';
 import { FormApi } from 'final-form';
 import classNames from 'classnames/bind';
+import i18next from 'i18next';
 import { isRequiredValidator } from '@/pages/todo/validators';
 import { TCreateTodoForm } from '@/_redux/todo-module';
+import { TODO_PAGE_TRANSLATES } from '@/pages/todo/_constants/translation';
 import styles from './index.module.scss';
 
 type TProps = {
@@ -28,18 +30,22 @@ export const TodoCreateView = memo(
                 <Field
                   autoComplete="off"
                   component={FormSimpleInput}
-                  label="Название задачи"
+                  label={i18next.t(TODO_PAGE_TRANSLATES.todoTitleLabel)}
                   name="title"
-                  placeholder="Введите название задачи"
+                  placeholder={i18next.t(
+                    TODO_PAGE_TRANSLATES.todoTitlePlaceholder,
+                  )}
                   required
                   validate={isRequiredValidator}
                 />
                 <Field
                   autoComplete="off"
                   component={FormSimpleInput}
-                  label="Описание задачи"
+                  label={i18next.t(TODO_PAGE_TRANSLATES.todoDescriptionLabel)}
                   name="description"
-                  placeholder="Введите описание задачи"
+                  placeholder={i18next.t(
+                    TODO_PAGE_TRANSLATES.todoDescriptionPlaceholder,
+                  )}
                   required
                   validate={isRequiredValidator}
                 />
@@ -48,7 +54,7 @@ export const TodoCreateView = memo(
                     disabled={!valid}
                     htmlType="submit"
                     loading={isLoadingForm}
-                    text="Создать задачу"
+                    text={i18next.t(TODO_PAGE_TRANSLATES.createTodoBtnText)}
                   />
                 </div>
               </form>

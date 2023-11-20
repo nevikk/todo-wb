@@ -6,8 +6,10 @@ import {
 import { memo } from 'react';
 import { Field, Form } from 'react-final-form';
 import classNames from 'classnames/bind';
+import i18next from 'i18next';
 import { isRequiredValidator } from '@/pages/todo/validators';
 import { TUpdateTodo } from '@/_redux/todo-module';
+import { TODO_PAGE_TRANSLATES } from '@/pages/todo/_constants/translation';
 import styles from './index.module.scss';
 
 type TProps = {
@@ -34,9 +36,11 @@ export const TodoCardFormView = memo(
                   autoComplete="off"
                   component={FormSimpleInput}
                   initialValue={title}
-                  label="Название задачи"
+                  label={i18next.t(TODO_PAGE_TRANSLATES.todoTitleLabel)}
                   name="title"
-                  placeholder="Введите название задачи"
+                  placeholder={i18next.t(
+                    TODO_PAGE_TRANSLATES.todoTitlePlaceholder,
+                  )}
                   required
                   validate={isRequiredValidator}
                 />
@@ -44,9 +48,11 @@ export const TodoCardFormView = memo(
                   autoComplete="off"
                   component={FormSimpleInput}
                   initialValue={description}
-                  label="Описание задачи"
+                  label={i18next.t(TODO_PAGE_TRANSLATES.todoDescriptionLabel)}
                   name="description"
-                  placeholder="Введите описание задачи"
+                  placeholder={i18next.t(
+                    TODO_PAGE_TRANSLATES.todoDescriptionPlaceholder,
+                  )}
                   required
                   validate={isRequiredValidator}
                 />
@@ -54,12 +60,12 @@ export const TodoCardFormView = memo(
                   <ButtonPrimary
                     disabled={!valid || pristine}
                     htmlType="submit"
-                    text="Сохранить"
+                    text={i18next.t(TODO_PAGE_TRANSLATES.submitEditTodoBtnText)}
                   />
                   <ButtonInterface
                     modifier="danger"
                     onClick={onCancel}
-                    text="Отмена"
+                    text={i18next.t(TODO_PAGE_TRANSLATES.cancelEditTodoBtnText)}
                   />
                 </div>
               </form>
