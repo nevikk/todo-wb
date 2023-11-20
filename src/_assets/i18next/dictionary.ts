@@ -6,4 +6,5 @@ export const I18N_DICTIONARY = {
   en: translateEN,
   ru: translateRU,
   cn: translateCN,
+  zh: translateCN,
 };
