@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 import { TFormattedUpdateTodo, TUpdateTodo } from '@/_redux/todo-module';
 
 export const formatDataToUpdateTodo = (
