@@ -65,7 +65,7 @@ const store = createAppStore({
 });
 
 const i18nextConfig = {
-  getLocale,
+  getLocale: () => getLocale({ isFromCookie: true }),
   i18next,
   i18nextRequest,
   actionToStartLoading: starti18nextLoadingAction,
@@ -85,18 +85,20 @@ router.add(routes);
 
 const root = createRoot(document.getElementById('root'));
 
+const initialLocale = getLocale({ isFromCookie: true });
+
 geti18Next({
   appNamespace: APP_NAMESPACE,
-  locale: getLocale(),
+  locale: initialLocale,
 }).then(() => {
   if (
     process.env.NODE_ENV === 'development' &&
     navigator.userAgent.includes('Windows')
   ) {
     i18next.addResourceBundle(
-      getLocale(),
+      initialLocale,
       APP_NAMESPACE,
-      I18N_DICTIONARY[getLocale()],
+      I18N_DICTIONARY[initialLocale],
     );
   }
 

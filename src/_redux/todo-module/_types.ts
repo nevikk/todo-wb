@@ -20,6 +20,12 @@ export type TUpdateTodo = {
   description: string;
 };
 
+export type TFormattedUpdateTodo = {
+  id: number;
+  title?: string;
+  description?: string;
+};
+
 export type TTodoState = {
   isLoading: boolean;
   isLoadingForm: boolean;

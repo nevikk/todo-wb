@@ -88,10 +88,15 @@ const updateTodoController = async (req, res) => {
     });
   }
 
-  await todosModel
-    .find({ id: findTodo.id })
-    .assign({ title, description })
-    .write();
+  if (title) {
+    findTodo.title = title;
+  }
+
+  if (description) {
+    findTodo.description = description;
+  }
+
+  await todosModel.find({ id: findTodo.id }).assign(findTodo).write();
 
   res.status(200).json({
     error: false,
@@ -99,8 +104,6 @@ const updateTodoController = async (req, res) => {
     additionalErrors: null,
     data: {
       id,
-      title,
-      description,
     },
   });
 };
